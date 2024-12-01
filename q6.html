@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bg.avif'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            padding: 40px;
+            width: 350px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .quiz-image {
+            max-width: 60%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            background-color: #7ef0f0;
+            color: rgb(12, 1, 1);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <img src="good6.jpg" alt="Quiz Image" class="quiz-image">
+        <h1>6. What is the purpose of the action attribute in a form tag?</h1>
+
+        <ul>
+            <li><input type="radio" name="answer"> A. Specifies the type of data sent </li>
+            <li><input type="radio" name="answer"> B. Defines the action to be taken when the form is submitted </li>
+            <li><input type="radio" name="answer"> C. Specifies the style of the form </li>
+                
+        </ul>
+
+        <div class="button-container">
+            <!-- 'Previous' button to go back to the first question -->
+            <a href="q5.html"><button>Previous</button></a>
+            <!-- 'Next' button to go to the next question -->
+            <a href="q7.html"><button>Next</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Object to store correct answers for all questions
+        const correctAnswers = {
+            q1: "B",
+            q2: "A",
+            q3: "C",
+            q4: "D",
+            q5: "A",
+            q6: "B",
+            q7: "C",
+            q8: "D",
+            q9: "B",
+            q10: "A"
+        };
+
+        // Function to calculate the score
+        function calculateScore() {
+            let score = 0;
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === correctAnswer) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        // Function to submit the quiz
+        function submitQuiz() {
+            const totalScore = calculateScore();
+            alert(`Your score is: ${totalScore} / 10`);
+        }
+    </script>
+
+
+</body>
+</html>
